@@ -1,6 +1,7 @@
 package nx.peter.app.tutorialone.ui.screen
 
 import android.widget.Toast
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,11 +11,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -40,6 +43,7 @@ import nx.peter.app.tutorialone.ui.nav.NavigationItem
 fun AddTodoScreen(
     navController: NavHostController
 ) {
+    val context = LocalContext.current
     var title by remember { mutableStateOf(TextFieldValue()) }
     var content by remember { mutableStateOf(TextFieldValue()) }
 
@@ -47,38 +51,36 @@ fun AddTodoScreen(
         containerColor = Color.White,
         topBar = {
             TopAppBar(
+                navigationIcon = {
+                    IconButton(onClick = { navController.popBackStack() }) {
+                        Icon(Icons.Default.ArrowBack, null)
+                    }
+                },
                 title = {
                     Text("Add Todo")
-                }, actions = {
-                    IconButton(onClick = {}) {
-                        Icon(Icons.Default.Search, null)
-                    }
                 }
             )
         }
     ) { innerPadding ->
         Column(
+
+            horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .padding(horizontal = 10.dp)
+                .padding(16.dp)
         ) {
-            val context = LocalContext.current
 
             TextField(
                 title,
-                onValueChange = {
-                    title = it
-                },
+                onValueChange = { title = it },
                 shape = RoundedCornerShape(10.dp),
                 colors = TextFieldDefaults.colors(
-                    focusedLabelColor = Color.Black
+                    focusedIndicatorColor = Color.Transparent,
+                    unfocusedIndicatorColor = Color.Transparent,
                 ),
-                label = {
-                    Text("Title")
-                },
-                modifier = Modifier.fillMaxWidth(),
-                textStyle = TextStyle(color = Color.Black)
+                label = { Text("Title") },
+                modifier = Modifier.fillMaxWidth()
             )
             Spacer(
                 modifier = Modifier
@@ -87,35 +89,23 @@ fun AddTodoScreen(
             )
             TextField(
                 value = content,
-                onValueChange = {
-                    content = it
-                },
-                label = {
-                    Text("Content")
-                },
-                modifier = Modifier.fillMaxWidth(),
-                textStyle = TextStyle(color = Color.Black)
+                onValueChange = { content = it },
+                shape = RoundedCornerShape(10.dp),
+                colors = TextFieldDefaults.colors(
+                    focusedIndicatorColor = Color.Transparent,
+                    unfocusedIndicatorColor = Color.Transparent,
+                ),
+                label = { Text("Content") },
+                modifier = Modifier.fillMaxWidth()
             )
-            Spacer(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(80.dp)
-            )
+
             Button(
                 onClick = {
-                    Toast.makeText(context, "You just added a new Todo!", Toast.LENGTH_SHORT).show()
-                    todoList.add(
-                        Todo(
-                            id = 0, title = title.text,
-                            content = content.text,
-                            isComplete = false
-                        )
-                    )
-                    navController.navigate(route = NavigationItem.Home.route) {
 
-                    }
                 },
-                modifier = Modifier.align(Alignment.CenterHorizontally)
+                modifier = Modifier
+                    .height(60.dp)
+                    .padding(top = 16.dp).fillMaxWidth(),
             ) {
                 Text(
                     "SUBMIT",

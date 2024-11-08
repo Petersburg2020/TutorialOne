@@ -18,7 +18,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             val navController = rememberNavController()
             TutorialOneTheme {
-                AppNavHost(Modifier.fillMaxSize(), navController)
+                AppNavHost(navController)
             }
         }
     }

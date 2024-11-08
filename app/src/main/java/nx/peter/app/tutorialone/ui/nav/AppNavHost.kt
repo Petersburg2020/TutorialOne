@@ -10,12 +10,11 @@ import nx.peter.app.tutorialone.ui.screen.HomeScreen
 
 @Composable
 fun AppNavHost(
-    modifier: Modifier = Modifier,
+
     navController: NavHostController,
-    startDestination: String = NavigationItem.Splash.route
+    startDestination: String = NavigationItem.Home.route
 ) {
     NavHost(
-        modifier = modifier,
         navController = navController,
         startDestination = startDestination
     ) {

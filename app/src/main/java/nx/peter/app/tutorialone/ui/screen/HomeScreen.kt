@@ -51,9 +51,7 @@ fun HomeScreen(
         containerColor = Color.White,
         topBar = {
             TopAppBar(
-                title = {
-                    Text("Todo")
-                }, actions = {
+                title = { Text("Todo") }, actions = {
                     IconButton(onClick = {}) {
                         Icon(Icons.Default.Search, null)
                     }
@@ -66,7 +64,7 @@ fun HomeScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .verticalScroll(state = ScrollState(0))
+                .verticalScroll(state = ScrollState(5))
         ) {
 
             // TODO: Build a list of todo items here
@@ -78,7 +76,7 @@ fun HomeScreen(
                                 item.title,
                                 color = Color.Black,
                                 style = TextStyle(
-                                    fontSize = 22.sp,
+                                    fontSize = 16.sp,
                                     fontWeight = FontWeight.Black,
                                     fontStyle = FontStyle.Normal
                                 )
@@ -100,7 +98,7 @@ fun HomeScreen(
                                     overflow = TextOverflow.Ellipsis,
                                     maxLines = 1,
                                     style = TextStyle(
-                                        fontSize = 16.sp,
+                                        fontSize = 14.sp,
                                         fontWeight = FontWeight.Medium,
                                     )
                                 )

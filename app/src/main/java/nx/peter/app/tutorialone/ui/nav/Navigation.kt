@@ -2,7 +2,6 @@ package nx.peter.app.tutorialone.ui.nav
 
 
 enum class Screen {
-    SPLASH,
     HOME,
     ADD_TODO,
 }
