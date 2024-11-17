@@ -35,13 +35,16 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import nx.peter.app.tutorialone.ui.nav.NavigationItem
+import nx.peter.app.tutorialone.viewmodel.HomeViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AddTodoScreen(
-    navController: NavHostController
+    navController: NavHostController,
+    viewModel: HomeViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current
     var title by remember { mutableStateOf(TextFieldValue()) }

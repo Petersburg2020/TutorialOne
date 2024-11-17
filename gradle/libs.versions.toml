@@ -7,9 +7,9 @@ junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.9.3"
-composeBom = "2024.10.01"
-navigationComposeVersion = "2.8.3"
-navigationRuntimeKtx = "2.8.3"
+composeBom = "2024.11.00"
+navigationComposeVersion = "2.8.4"
+navigationRuntimeKtx = "2.8.4"
 hiltVersion = "2.51.1"
 kspVersion = "2.0.21-1.0.25"
 hiltNavigationCompose = "1.2.0"
@@ -38,7 +38,6 @@ androidx-navigation-runtime-ktx = { group = "androidx.navigation", name = "navig
 androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hiltVersion" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hiltVersion" }
-
 
 
 [plugins]
